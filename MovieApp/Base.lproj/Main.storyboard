@@ -111,7 +111,23 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f51-Ju-ya3" id="ZIA-oK-uBc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOB-f2-maL">
+                                                    <rect key="frame" x="15" y="11" width="345" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="UOB-f2-maL" firstAttribute="top" secondItem="ZIA-oK-uBc" secondAttribute="topMargin" id="AhX-q1-vR8"/>
+                                                <constraint firstItem="UOB-f2-maL" firstAttribute="leading" secondItem="ZIA-oK-uBc" secondAttribute="leadingMargin" id="c82-CN-GV0"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UOB-f2-maL" secondAttribute="trailing" id="vJN-b6-jFL"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="label" destination="UOB-f2-maL" id="xTq-Sh-5Qa"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

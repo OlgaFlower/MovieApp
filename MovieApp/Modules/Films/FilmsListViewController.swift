@@ -11,51 +11,42 @@ import Alamofire
 import SwiftyJSON
 
 class FilmsListViewController: UIViewController {
-
+    
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: - Properties
-    let source = APISource.shared
+    let apiClient = NetworkClient()
+    var ratedFilms = RatedFilms()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        fetchTopRatedFilms()
         
-    }
-    
-    func fetchTopRatedFilms() {
-        guard let url = URL(string: source.baseURL + source.topRatedFilmsParametres + source.apiKey) else {
-            print("could not form url")
-            return
-        }
-        
-        AF.request(url).responseJSON { (response) in
-            if let jsonData = response.value as? [String : Any] {
-                print(jsonData)
+        apiClient.fetchTopRatedFilms()
+        apiClient.completionHandler { [weak self] (ratedFilms, status, message) in
+            if status {
+                guard let films = ratedFilms else { return }
+                self?.ratedFilms = films
+                self?.tableView.reloadData()
             }
         }
         
     }
-    
-
 }
-
 
 extension FilmsListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return ratedFilms.films?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FilmCell", for: indexPath) as! FilmTableViewCell
         
+        guard let film = ratedFilms.films?[indexPath.row] else { return UITableViewCell() }
+        cell.label.text = film.title
         return cell
     }
-    
-    
     
 }
