@@ -23,10 +23,9 @@ class LicenseViewController: UIViewController {
     }
 
     @IBAction func agreeTapped(_ sender: Any) {
-        print("Agree")
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let filmsVC = storyBoard.instantiateViewController(withIdentifier: "FilmsListViewController") as! FilmsListViewController
-//        self.navigationController?.pushViewController(filmsVC, animated: true)
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let filmsVC = storyBoard.instantiateViewController(withIdentifier: "FilmsListViewController") as! FilmsListViewController
+        self.navigationController?.pushViewController(filmsVC, animated: true)
     }
     
     @IBAction func cancelTapped(_ sender: Any) {
