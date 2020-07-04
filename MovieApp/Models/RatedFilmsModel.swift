@@ -21,12 +21,15 @@ struct RatedFilms: Codable {
 struct Film: Codable {
     var id: Int?
     var title: String?
-    var image: String?
+    var imageURL: String?
+    var releaseDate: String?
 
     private enum CodingKeys: String, CodingKey {
         case id
         case title
-        case image = "backdrop_path"
+        case imageURL = "backdrop_path"
+        case releaseDate = "release_date"
     }
-
 }
+
+

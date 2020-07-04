@@ -2,25 +2,58 @@
 //  FilmTableViewCell.swift
 //  MovieApp
 //
-//  Created by Olha Bereziuk on 03.07.2020.
+//  Created by Olha Bereziuk on 04.07.2020.
 //  Copyright © 2020 Olha Bereziuk. All rights reserved.
 //
+
+protocol FilmTableViewCellProtocol {
+    func displayFilmImage(_ imageURL: String?)
+    func displayTitle(_ title: String)
+    func displayReleaseDate(_ date: String)
+}
 
 import UIKit
 
 class FilmTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var label: UILabel!
+    //MARK: - Outlets
+    @IBOutlet weak var filmImage: UIImageView!
+    @IBOutlet weak var filmNameLabel: UILabel!
+    @IBOutlet weak var releaseDate: UILabel!
     
+    //MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        resetContent()
+        setupImageView()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func resetContent() {
+        filmImage.image = nil
+        filmNameLabel.text = nil
+        releaseDate.text = nil
     }
+    
+    func setupImageView() {
+        filmImage.layer.cornerRadius = 8
+    }
+}
 
+extension FilmTableViewCell: FilmTableViewCellProtocol {
+    
+    func displayFilmImage(_ imageURL: String?) {
+        guard let urlString = imageURL else { return }
+        guard let url = URL(string: APISource.shared.baseImagebackdropURL + urlString) else { return }
+        UIImage.loadImageFrom(url: url) { image in
+            self.filmImage.image = image
+        }
+    }
+    
+    func displayTitle(_ title: String) {
+        filmNameLabel.text = title
+    }
+    
+    func displayReleaseDate(_ date: String) {
+        releaseDate.text = date
+    }
 }

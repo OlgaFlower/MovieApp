@@ -16,12 +16,12 @@ extension FilmsListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FilmCell", for: indexPath) as! FilmTableViewCell
-        
-        cell.label.text = ratedFilms[indexPath.row].title
+        presenter.configureCell(cell, ratedFilms[indexPath.row])
         
         return cell
     }
     
+    //Pagination
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == ratedFilms.count - 1 {
             
@@ -50,12 +50,10 @@ extension FilmsListViewController: UITableViewDataSource, UITableViewDelegate {
                                 self?.tableView.reloadData()
                             }
                         }
-                        
                     }
                 }
             }
-            
         }
     }
-    
 }
+

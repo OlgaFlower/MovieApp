@@ -27,6 +27,7 @@ final class APISource {
     let keyParameter = "&api_key="
     let pageParameter = "&page="
     let baseURL = "https://api.themoviedb.org/3/"
+    let baseImagebackdropURL = "https://image.tmdb.org/t/p/w500"
     let topRatedFilmsParametres = "discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc"
     
     
@@ -34,12 +35,5 @@ final class APISource {
         let page = String(page)
         return baseURL + topRatedFilmsParametres + pageParameter + page + keyParameter + apiKey
     }
-    
-    
-//    let parameters: [String : String] = [
-//        "certification_country" : "US",
-//        "certification" : "R",
-//        "sort_by" : "vote_average.desc"
-//    ]
     
 }

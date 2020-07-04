@@ -6,9 +6,21 @@
 //  Copyright © 2020 Olha Bereziuk. All rights reserved.
 //
 
+protocol ConfigureFilmCellProtocol: class {
+    func configureCell(_ cell: FilmTableViewCellProtocol, _ film: Film)
+}
+
 import UIKit
 
-class FilmsPresenter {
+class FilmsPresenter: ConfigureFilmCellProtocol {
+    
+    func configureCell(_ cell: FilmTableViewCellProtocol, _ ratedFilm: Film) {
+        guard let title = ratedFilm.title, let date = ratedFilm.releaseDate else { return }
+        cell.displayTitle(title)
+        cell.displayReleaseDate(date)
+        cell.displayFilmImage(ratedFilm.imageURL)
+    }
+    
     
     func addSpinner(_ width: CGFloat) -> UIView {
         let spinner = UIActivityIndicatorView(style: .large)
@@ -16,5 +28,6 @@ class FilmsPresenter {
         spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: width, height: CGFloat(44))
         return spinner
     }
+    
     
 }

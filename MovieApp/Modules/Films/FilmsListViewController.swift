@@ -43,6 +43,8 @@ class FilmsListViewController: UIViewController {
     func setupTableView() {
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView(frame: .zero)
+        
+        tableView.register(UINib(nibName: "FilmTableViewCell", bundle: nil), forCellReuseIdentifier: "FilmCell")
     }
     
 }
