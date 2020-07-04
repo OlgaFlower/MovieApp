@@ -30,11 +30,25 @@ class FilmsListViewController: UIViewController {
         apiClient.fetchTopRatedFilms(page)
         apiClient.topRatedHandler { [weak self] (ratedFilms, status, message) in
             if status {
-                guard let filmsInfo = ratedFilms else { return }
-                guard let films = filmsInfo.films else { return }
+                guard let filmsInfo = ratedFilms else {
+                    print("NO filmsInfo")
+                    return
+                }
+                guard let films = filmsInfo.films else {
+                    print("NO films")
+                    return
+                }
                 self?.ratedFilms = films
                 self?.totalFilmsPages = filmsInfo.totalPages
-                self?.tableView.reloadData()
+                guard let page = filmsInfo.page else {
+                    print("NO page")
+                    return
+                }
+                self?.page = page
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+                
             }
         }
     }
@@ -55,6 +69,7 @@ class FilmsListViewController: UIViewController {
     }
     
     func setupTableView() {
+//        tableView.prefetchDataSource = self
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView(frame: .zero)
         
