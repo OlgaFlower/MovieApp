@@ -11,30 +11,59 @@ import Alamofire
 
 class DetailsViewController: UIViewController {
     
+    //MARK: - Outlets
+    //Field
+    @IBOutlet weak var releaseLabel: UILabel!
+    
+    //Details
+    @IBOutlet weak var tagLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var filmImage: UIImageView!
+    @IBOutlet weak var overviewLabel: UILabel!
     
     //MARK: - Properties
     var presenter: DetailsPresenter!
     var filmID: Int?
     
-    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         presenter = DetailsPresenter()
         presenter.fetchData(filmID)
+        
         presenter.updateDetails { details in
             if details != nil {
                 guard let info = details else { return }
-                self.dateLabel.text = info.releaseDate
-                self.titleLabel.text = info.title
+                self.setup(info)
             }
             else {
+                //TODO - HANDLE ERROR*********
                 print("details = nil")
             }
         }
+        
+    }
+    
+    func setup(_ info: FilmInfoModel) {
+        self.dateLabel.text = info.releaseDate
+        self.titleLabel.text = info.title
+        self.tagLabel.text = info.tagLine
+        self.overviewLabel.text = info.overview
+        setupImageView(info.imageURL)
+    }
+    
+    func setupImageView(_ imageURL: String?) {
+        guard let urlString = imageURL else { return }
+        guard let url = URL(string: APISource.shared.baseImageURL + urlString) else { return }
+        UIImage.loadImageFrom(url: url) { image in
+            self.filmImage.image = image
+        }
+    }
+    
+    func setupFields() {
+        releaseLabel.text = "Release:"
         
     }
     
