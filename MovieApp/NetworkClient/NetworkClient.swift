@@ -40,4 +40,19 @@ class NetworkClient {
         self.callback = callback
     }
     
+    
+    
+    
+    
+//    typealias filmsInfoCallback = (_ film: FilmInfoModel?, _ status: Bool, _ message: String) -> Void
+//
+//    var filmInfocallback: filmsInfoCallback?
+//
+//    func fetchFilms(_ page: Int?, _ id: Int?, type: TypesModel) {
+//
+//    }
+
+    
+    
+    
 }

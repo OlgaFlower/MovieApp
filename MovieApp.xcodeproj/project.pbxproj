@@ -26,6 +26,7 @@
 		84D465C024B05F2200062956 /* FilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D465BE24B05F2200062956 /* FilmTableViewCell.swift */; };
 		84D465C124B05F2200062956 /* FilmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D465BF24B05F2200062956 /* FilmTableViewCell.xib */; };
 		84D465C324B0716000062956 /* UIImage + loadFromURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D465C224B0716000062956 /* UIImage + loadFromURL.swift */; };
+		84D465CA24B08CF200062956 /* FilmInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D465C924B08CF200062956 /* FilmInfoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		84D465BE24B05F2200062956 /* FilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewCell.swift; sourceTree = "<group>"; };
 		84D465BF24B05F2200062956 /* FilmTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmTableViewCell.xib; sourceTree = "<group>"; };
 		84D465C224B0716000062956 /* UIImage + loadFromURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + loadFromURL.swift"; sourceTree = "<group>"; };
+		84D465C924B08CF200062956 /* FilmInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmInfoModel.swift; sourceTree = "<group>"; };
 		873054C4DEC55886F20437A1 /* Pods_MovieApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E4B3E43CA846D0015FBF0E2 /* Pods-MovieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieApp.release.xcconfig"; path = "Target Support Files/Pods-MovieApp/Pods-MovieApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				84D465B324AFB52400062956 /* RatedFilmsModel.swift */,
+				84D465C924B08CF200062956 /* FilmInfoModel.swift */,
 				84B6BE8F24AEDD320022F200 /* Constants.swift */,
 			);
 			path = Models;
@@ -307,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D465CA24B08CF200062956 /* FilmInfoModel.swift in Sources */,
 				84B6BE7F24AE90B30022F200 /* LicenseViewController.swift in Sources */,
 				84D465C324B0716000062956 /* UIImage + loadFromURL.swift in Sources */,
 				847A822224AEE03700DB6754 /* FilmsListViewController.swift in Sources */,
