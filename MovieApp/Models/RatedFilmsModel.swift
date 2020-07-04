@@ -8,10 +8,12 @@
 
 struct RatedFilms: Codable {
     var totalPages: Int?
+    var page: Int?
     var films: [Film]?
 
     private enum CodingKeys: String, CodingKey {
         case totalPages = "total_pages"
+        case page
         case films = "results"
     }
 }

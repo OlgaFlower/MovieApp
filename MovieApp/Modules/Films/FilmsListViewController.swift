@@ -16,22 +16,27 @@ class FilmsListViewController: UIViewController {
     
     //MARK: - Properties
     let apiClient = NetworkClient()
-    var ratedFilms = RatedFilms()
+    var ratedFilms = [Film]()
+    //Pagination data
+    var totalFilmsPages: Int?
+    var page: Int?
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         
-        apiClient.fetchTopRatedFilms()
+        apiClient.fetchTopRatedFilms(1)
         apiClient.completionHandler { [weak self] (ratedFilms, status, message) in
             if status {
-                guard let films = ratedFilms else { return }
+                guard let filmsInfo = ratedFilms else { return }
+                guard let films = filmsInfo.films else { return }
                 self?.ratedFilms = films
+                self?.totalFilmsPages = filmsInfo.totalPages
+                self?.page = filmsInfo.page
                 self?.tableView.reloadData()
             }
         }
-        
     }
     
     func setupTableView() {
@@ -41,22 +46,4 @@ class FilmsListViewController: UIViewController {
     
 }
 
-extension FilmsListViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ratedFilms.films?.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FilmCell", for: indexPath) as! FilmTableViewCell
-        
-        guard let film = ratedFilms.films?[indexPath.row] else { return UITableViewCell() }
-        cell.label.text = film.title
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-    }
-    
-}
+

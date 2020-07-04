@@ -18,11 +18,10 @@ class NetworkClient {
     let source = APISource.shared
     
     //MARK:
-    func fetchTopRatedFilms() {
-        guard let url = URL(string: source.baseURL + source.topRatedFilmsParametres + source.apiKey) else {
-            print("could not form url")
-            return
-        }
+    func fetchTopRatedFilms(_ page: Int) {
+        
+        guard let url = APISource.shared.ratedFilmsURL(page) else { return }
+        
         
         AF.request(url).response { responseData in
             guard let data = responseData.data else {

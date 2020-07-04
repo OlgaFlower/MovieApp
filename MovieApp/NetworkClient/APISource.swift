@@ -23,14 +23,23 @@ final class APISource {
     
     static let shared = APISource()
     
-    let apiKey = "00dc39f3a2f7cefcd9dec673d6d89140"
+    private let apiKey = "00dc39f3a2f7cefcd9dec673d6d89140"
+    let keyParameter = "&api_key="
+    let pageParameter = "&page="
     let baseURL = "https://api.themoviedb.org/3/"
-    let topRatedFilmsParametres = "discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc&api_key="
+    let topRatedFilmsParametres = "discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc"
     
-    let parameters: [String : String] = [
-        "certification_country" : "US",
-        "certification" : "R",
-        "sort_by" : "vote_average.desc"
-    ]
+    
+    func ratedFilmsURL(_ page: Int) -> String? {
+        let page = String(page)
+        return baseURL + topRatedFilmsParametres + pageParameter + page + keyParameter + apiKey
+    }
+    
+    
+//    let parameters: [String : String] = [
+//        "certification_country" : "US",
+//        "certification" : "R",
+//        "sort_by" : "vote_average.desc"
+//    ]
     
 }
