@@ -9,46 +9,45 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="136" id="KGk-i7-Jjw" customClass="FilmTableViewCell" customModule="MovieApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="136"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="144" id="KGk-i7-Jjw" customClass="FilmTableViewCell" customModule="MovieApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="136"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FpK-TO-Vn9">
-                        <rect key="frame" x="5" y="15" width="120" height="100"/>
-                        <color key="backgroundColor" red="0.40241772539999998" green="0.66372541240000005" blue="0.333453318" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="frame" x="10" y="10" width="80" height="110"/>
+                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="120" id="KGp-wo-VBq"/>
-                            <constraint firstAttribute="height" constant="100" id="Kn6-Ed-U6V"/>
+                            <constraint firstAttribute="height" constant="110" id="Bcs-4u-bsP"/>
+                            <constraint firstAttribute="width" constant="80" id="UsL-0U-jJF"/>
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JQc-aQ-hGw">
-                        <rect key="frame" x="140" y="40.5" width="175" height="49.5"/>
+                        <rect key="frame" x="267.5" y="40.5" width="42.5" height="49.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gzd-5g-Uoo">
-                                <rect key="frame" x="0.0" y="0.0" width="175" height="21"/>
+                                <rect key="frame" x="0.0" y="0.0" width="42.5" height="21"/>
                                 <fontDescription key="fontDescription" name="Verdana-BoldItalic" family="Verdana" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lga-sD-cfz">
-                                <rect key="frame" x="0.0" y="31" width="175" height="18.5"/>
+                                <rect key="frame" x="0.0" y="31" width="42.5" height="18.5"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="FpK-TO-Vn9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="5ko-Sn-uLp"/>
-                    <constraint firstAttribute="bottom" secondItem="FpK-TO-Vn9" secondAttribute="bottom" constant="15" id="D70-Av-zsf"/>
-                    <constraint firstItem="JQc-aQ-hGw" firstAttribute="leading" secondItem="FpK-TO-Vn9" secondAttribute="trailing" constant="15" id="Fbc-j3-vJt"/>
-                    <constraint firstItem="FpK-TO-Vn9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="Fdz-tE-aRc"/>
-                    <constraint firstItem="JQc-aQ-hGw" firstAttribute="centerY" secondItem="FpK-TO-Vn9" secondAttribute="centerY" id="R85-X8-484"/>
-                    <constraint firstAttribute="trailing" secondItem="JQc-aQ-hGw" secondAttribute="trailing" constant="5" id="hzC-PN-uih"/>
+                    <constraint firstItem="FpK-TO-Vn9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="RMX-x9-rfV"/>
+                    <constraint firstItem="JQc-aQ-hGw" firstAttribute="centerY" secondItem="FpK-TO-Vn9" secondAttribute="centerY" id="adB-Ir-rEL"/>
+                    <constraint firstAttribute="trailing" secondItem="JQc-aQ-hGw" secondAttribute="trailing" constant="10" id="dJL-Ma-cQJ"/>
+                    <constraint firstItem="FpK-TO-Vn9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="fJS-zh-31s"/>
+                    <constraint firstAttribute="bottom" secondItem="FpK-TO-Vn9" secondAttribute="bottom" constant="10" id="jsr-vO-gch"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -57,7 +56,7 @@
                 <outlet property="filmNameLabel" destination="Gzd-5g-Uoo" id="NaF-zy-7jq"/>
                 <outlet property="releaseDate" destination="Lga-sD-cfz" id="FW4-00-g4X"/>
             </connections>
-            <point key="canvasLocation" x="505.79710144927537" y="211.60714285714286"/>
+            <point key="canvasLocation" x="182.60869565217394" y="204.91071428571428"/>
         </tableViewCell>
     </objects>
 </document>

@@ -21,6 +21,16 @@ extension FilmsListViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedItem = ratedFilms[indexPath.row]
+        
+        let detailVC: DetailsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        detailVC.filmID = selectedItem.id
+        
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
     //Pagination
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == ratedFilms.count - 1 {

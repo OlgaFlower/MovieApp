@@ -9,10 +9,14 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-
+    
+    //MARK: - Properties
+    var filmID: Int?
+    
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(filmID)
     }
     
 
