@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
 
 class FilmsListViewController: UIViewController {
     
@@ -22,6 +21,7 @@ class FilmsListViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
         
         apiClient.fetchTopRatedFilms()
         apiClient.completionHandler { [weak self] (ratedFilms, status, message) in
@@ -33,6 +33,12 @@ class FilmsListViewController: UIViewController {
         }
         
     }
+    
+    func setupTableView() {
+        tableView.separatorStyle = .none
+        tableView.tableFooterView = UIView(frame: .zero)
+    }
+    
 }
 
 extension FilmsListViewController: UITableViewDataSource {
@@ -47,6 +53,10 @@ extension FilmsListViewController: UITableViewDataSource {
         guard let film = ratedFilms.films?[indexPath.row] else { return UITableViewCell() }
         cell.label.text = film.title
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
     }
     
 }
