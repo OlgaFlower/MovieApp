@@ -16,6 +16,7 @@ class FilmsListViewController: UIViewController {
     
     //MARK: - Properties
     let apiClient = NetworkClient()
+    let presenter = FilmsPresenter()
     var ratedFilms = [Film]()
     //Pagination data
     var totalFilmsPages: Int?

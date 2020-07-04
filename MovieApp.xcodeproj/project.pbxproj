@@ -23,6 +23,7 @@
 		84D465B424AFB52400062956 /* RatedFilmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D465B324AFB52400062956 /* RatedFilmsModel.swift */; };
 		84D465B624AFC43700062956 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D465B524AFC43700062956 /* NetworkClient.swift */; };
 		84D465B924B04BCC00062956 /* FilmsVC + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D465B824B04BCC00062956 /* FilmsVC + UITableView.swift */; };
+		84D465BB24B05C4800062956 /* FilmsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D465BA24B05C4800062956 /* FilmsPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		84D465B324AFB52400062956 /* RatedFilmsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatedFilmsModel.swift; sourceTree = "<group>"; };
 		84D465B524AFC43700062956 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		84D465B824B04BCC00062956 /* FilmsVC + UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilmsVC + UITableView.swift"; sourceTree = "<group>"; };
+		84D465BA24B05C4800062956 /* FilmsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsPresenter.swift; sourceTree = "<group>"; };
 		873054C4DEC55886F20437A1 /* Pods_MovieApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E4B3E43CA846D0015FBF0E2 /* Pods-MovieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieApp.release.xcconfig"; path = "Target Support Files/Pods-MovieApp/Pods-MovieApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +82,7 @@
 		847A822324AEE04300DB6754 /* Films */ = {
 			isa = PBXGroup;
 			children = (
+				84D465BA24B05C4800062956 /* FilmsPresenter.swift */,
 				847A822124AEE03700DB6754 /* FilmsListViewController.swift */,
 				84D465B824B04BCC00062956 /* FilmsVC + UITableView.swift */,
 				84D465B724B0498C00062956 /* FilmsCell */,
@@ -308,6 +311,7 @@
 				84D465B024AF963400062956 /* APISource.swift in Sources */,
 				84D465B224AFAD9800062956 /* FilmTableViewCell.swift in Sources */,
 				847A822924AEEB5900DB6754 /* UIViewController + Alert.swift in Sources */,
+				84D465BB24B05C4800062956 /* FilmsPresenter.swift in Sources */,
 				847A822624AEE8DC00DB6754 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

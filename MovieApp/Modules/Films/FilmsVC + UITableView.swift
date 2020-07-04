@@ -32,14 +32,23 @@ extension FilmsListViewController: UITableViewDataSource, UITableViewDelegate {
                 apiClient.fetchTopRatedFilms(page + 1)
                 apiClient.completionHandler { [weak self] (ratedFilms, status, message) in
                     if status {
+                        
+                        tableView.tableFooterView = self?.presenter.addSpinner(tableView.bounds.width)
+                        tableView.tableFooterView?.isHidden = false
+                        
                         guard let filmsInfo = ratedFilms else { return }
                         guard let films = filmsInfo.films else { return }
                         
-                        self?.ratedFilms.append(contentsOf: films)
-                        self?.totalFilmsPages = filmsInfo.totalPages
-                        self?.page = filmsInfo.page
-                        DispatchQueue.main.async {
-                            self?.tableView.reloadData()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                            self?.ratedFilms.append(contentsOf: films)
+                            self?.totalFilmsPages = filmsInfo.totalPages
+                            self?.page = filmsInfo.page
+                            
+                            DispatchQueue.main.async {
+                                //Hide spinner
+                                tableView.tableFooterView?.isHidden = true
+                                self?.tableView.reloadData()
+                            }
                         }
                         
                     }
