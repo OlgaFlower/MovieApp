@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0CCF27FD54E2BAA6B9EFD405 /* Pods_MovieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 873054C4DEC55886F20437A1 /* Pods_MovieApp.framework */; };
+		8408A3D024B09C1C00578291 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408A3CF24B09C1C00578291 /* DetailsPresenter.swift */; };
 		847A822224AEE03700DB6754 /* FilmsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A822124AEE03700DB6754 /* FilmsListViewController.swift */; };
 		847A822624AEE8DC00DB6754 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A822524AEE8DC00DB6754 /* DetailsViewController.swift */; };
 		847A822924AEEB5900DB6754 /* UIViewController + Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A822824AEEB5900DB6754 /* UIViewController + Alert.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		671CF2C93332998D0CD37D77 /* Pods-MovieApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieApp.debug.xcconfig"; path = "Target Support Files/Pods-MovieApp/Pods-MovieApp.debug.xcconfig"; sourceTree = "<group>"; };
+		8408A3CF24B09C1C00578291 /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
 		847A822124AEE03700DB6754 /* FilmsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsListViewController.swift; sourceTree = "<group>"; };
 		847A822524AEE8DC00DB6754 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		847A822824AEEB5900DB6754 /* UIViewController + Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Alert.swift"; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				847A822524AEE8DC00DB6754 /* DetailsViewController.swift */,
+				8408A3CF24B09C1C00578291 /* DetailsPresenter.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				847A822924AEEB5900DB6754 /* UIViewController + Alert.swift in Sources */,
 				84D465BB24B05C4800062956 /* FilmsPresenter.swift in Sources */,
 				847A822624AEE8DC00DB6754 /* DetailsViewController.swift in Sources */,
+				8408A3D024B09C1C00578291 /* DetailsPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

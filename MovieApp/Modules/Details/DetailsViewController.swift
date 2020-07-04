@@ -7,17 +7,21 @@
 //
 
 import UIKit
+import Alamofire
 
 class DetailsViewController: UIViewController {
     
     //MARK: - Properties
     var filmID: Int?
+    let presenter = DetailsPresenter()
+    
+    
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(filmID)
+        presenter.fetchData(filmID)
     }
     
-
+    
 }

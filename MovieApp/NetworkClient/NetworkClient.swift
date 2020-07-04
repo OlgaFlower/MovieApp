@@ -11,48 +11,61 @@ import Alamofire
 
 class NetworkClient {
     
-    //MARK: Properties
-    typealias topRatedFilmsCallback = (_ films: RatedFilms?, _ status: Bool, _ message: String) -> Void
-    
-    var callback: topRatedFilmsCallback?
+    //MARK: - Properties
     let source = APISource.shared
     
-    //MARK:
+    typealias filmsCallback = (_ films: RatedFilms?, _ status: Bool, _ message: String) -> Void
+    typealias infoCallback = (_ film: FilmInfoModel?, _ status: Bool, _ message: String) -> Void
+    
+    var topRatedCallback: filmsCallback?
+    var filmInfocallback: infoCallback?
+    
+    //MARK: - Callback
+    func topRatedHandler(callback: @escaping filmsCallback) {
+        self.topRatedCallback = callback
+    }
+
+    func filmInfoHandler(callback: @escaping infoCallback) {
+        self.filmInfocallback = callback
+    }
+    
+    
+    //MARK: - Top Rated Films
     func fetchTopRatedFilms(_ page: Int) {
         
         guard let url = APISource.shared.ratedFilmsURL(page) else { return }
         
-        
         AF.request(url).response { responseData in
             guard let data = responseData.data else {
-                self.callback?(nil, false, "")
+                self.topRatedCallback?(nil, false, "")
                 return }
             do {
                 let ratedFilms = try JSONDecoder().decode(RatedFilms.self, from: data)
-                self.callback?(ratedFilms, true, "")
+                self.topRatedCallback?(ratedFilms, true, "")
             } catch {
-                self.callback?(nil, false, error.localizedDescription)
+                self.topRatedCallback?(nil, false, error.localizedDescription)
             }
         }
     }
     
-    func completionHandler(callback: @escaping topRatedFilmsCallback) {
-        self.callback = callback
+    
+    //MARK: - Film Info
+    func fetchFilmsInfo(_ id: Int) {
+        
+        guard let url = APISource.shared.filmInfo(id) else { return }
+        
+        AF.request(url).response { responseData in
+            guard let data = responseData.data else {
+                self.filmInfocallback?(nil, false, "")
+                return }
+            do {
+                let info = try JSONDecoder().decode(FilmInfoModel.self, from: data)
+                self.filmInfocallback?(info, true, "")
+            } catch {
+                self.filmInfocallback?(nil, false, error.localizedDescription)
+            }
+        }
     }
     
-    
-    
-    
-    
-//    typealias filmsInfoCallback = (_ film: FilmInfoModel?, _ status: Bool, _ message: String) -> Void
-//
-//    var filmInfocallback: filmsInfoCallback?
-//
-//    func fetchFilms(_ page: Int?, _ id: Int?, type: TypesModel) {
-//
-//    }
 
-    
-    
-    
 }

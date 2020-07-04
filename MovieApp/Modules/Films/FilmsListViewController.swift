@@ -28,7 +28,7 @@ class FilmsListViewController: UIViewController {
         setupTableView()
         
         apiClient.fetchTopRatedFilms(1)
-        apiClient.completionHandler { [weak self] (ratedFilms, status, message) in
+        apiClient.topRatedHandler { [weak self] (ratedFilms, status, message) in
             if status {
                 guard let filmsInfo = ratedFilms else { return }
                 guard let films = filmsInfo.films else { return }

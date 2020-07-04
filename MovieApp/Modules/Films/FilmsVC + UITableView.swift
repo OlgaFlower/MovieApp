@@ -40,7 +40,7 @@ extension FilmsListViewController: UITableViewDataSource, UITableViewDelegate {
             
             if page < totalPages {
                 apiClient.fetchTopRatedFilms(page + 1)
-                apiClient.completionHandler { [weak self] (ratedFilms, status, message) in
+                apiClient.topRatedHandler { [weak self] (ratedFilms, status, message) in
                     if status {
                         
                         tableView.tableFooterView = self?.presenter.addSpinner(tableView.bounds.width)
