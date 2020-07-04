@@ -29,7 +29,7 @@ class DetailsViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.title = "Details"
         presenter = DetailsPresenter()
         presenter.fetchData(filmID)
         
@@ -40,7 +40,6 @@ class DetailsViewController: UIViewController {
             }
             else {
                 //TODO - HANDLE ERROR*********
-                print("details = nil")
             }
         }
         

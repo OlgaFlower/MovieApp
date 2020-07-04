@@ -20,26 +20,39 @@ class FilmsListViewController: UIViewController {
     var ratedFilms = [Film]()
     //Pagination data
     var totalFilmsPages: Int?
-    var page: Int?
+    var page = 1
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavBar()
         setupTableView()
-        apiClient.fetchTopRatedFilms(1)
+        apiClient.fetchTopRatedFilms(page)
         apiClient.topRatedHandler { [weak self] (ratedFilms, status, message) in
             if status {
                 guard let filmsInfo = ratedFilms else { return }
                 guard let films = filmsInfo.films else { return }
                 self?.ratedFilms = films
                 self?.totalFilmsPages = filmsInfo.totalPages
-                self?.page = filmsInfo.page
                 self?.tableView.reloadData()
             }
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeBackTitle()
+    }
     
+    //MARK: - Methods
+    func setupNavBar() {
+        navigationItem.title = "Top Rated Films"
+    }
+    
+    func removeBackTitle() {
+        let backButton = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: self, action: nil)
+        navigationItem.backBarButtonItem = backButton
+    }
     
     func setupTableView() {
         tableView.separatorStyle = .none

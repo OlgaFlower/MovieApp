@@ -88,7 +88,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="License Agreement" id="gTj-Av-kOE"/>
+                    <navigationItem key="navigationItem" title="License Agreement" id="gTj-Av-kOE">
+                        <barButtonItem key="backBarButtonItem" title=" " id="vnE-99-GZ7"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="agreeButton" destination="iZf-nb-ZYB" id="a2d-zg-CgS"/>
                         <outlet property="cancelButton" destination="48a-Gp-ulR" id="M6h-j0-3pF"/>
