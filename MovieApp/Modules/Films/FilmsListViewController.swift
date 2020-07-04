@@ -26,7 +26,6 @@ class FilmsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        
         apiClient.fetchTopRatedFilms(1)
         apiClient.topRatedHandler { [weak self] (ratedFilms, status, message) in
             if status {
@@ -39,6 +38,8 @@ class FilmsListViewController: UIViewController {
             }
         }
     }
+    
+    
     
     func setupTableView() {
         tableView.separatorStyle = .none

@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--License View Controller-->
+        <!--License Agreement-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="LicenseViewController" id="BYZ-38-t0r" customClass="LicenseViewController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,22 +16,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nle-r3-XdG">
-                                <rect key="frame" x="0.0" y="44" width="375" height="538"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="543"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2t-Kd-8Of">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="40.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KjE-nW-4bt">
-                                                <rect key="frame" x="10" y="10" width="355" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KjE-nW-4bt">
+                                                <rect key="frame" x="15" y="10" width="345" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="KjE-nW-4bt" firstAttribute="leading" secondItem="M2t-Kd-8Of" secondAttribute="leading" constant="10" id="6bb-zR-mPT"/>
-                                            <constraint firstAttribute="trailing" secondItem="KjE-nW-4bt" secondAttribute="trailing" constant="10" id="Qr4-cv-aj4"/>
+                                            <constraint firstItem="KjE-nW-4bt" firstAttribute="leading" secondItem="M2t-Kd-8Of" secondAttribute="leading" constant="15" id="6bb-zR-mPT"/>
+                                            <constraint firstAttribute="trailing" secondItem="KjE-nW-4bt" secondAttribute="trailing" constant="15" id="Qr4-cv-aj4"/>
                                             <constraint firstItem="KjE-nW-4bt" firstAttribute="top" secondItem="M2t-Kd-8Of" secondAttribute="top" constant="10" id="SO4-EI-VQv"/>
                                             <constraint firstAttribute="bottom" secondItem="KjE-nW-4bt" secondAttribute="bottom" constant="10" id="ago-Re-7DU"/>
                                         </constraints>
@@ -45,32 +45,38 @@
                                     <constraint firstAttribute="bottom" secondItem="M2t-Kd-8Of" secondAttribute="bottom" id="zOr-Nl-5bl"/>
                                 </constraints>
                             </scrollView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Zt-dR-TS7">
-                                <rect key="frame" x="10" y="602" width="355" height="45"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="3Zt-dR-TS7">
+                                <rect key="frame" x="10" y="607" width="355" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZf-nb-ZYB">
-                                        <rect key="frame" x="0.0" y="0.0" width="172.5" height="45"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Agree"/>
-                                        <connections>
-                                            <action selector="agreeTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xhf-yl-Psg"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48a-Gp-ulR">
-                                        <rect key="frame" x="182.5" y="0.0" width="172.5" height="45"/>
-                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Cancel"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="171" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="cancelTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ocz-Xa-mFH"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZf-nb-ZYB">
+                                        <rect key="frame" x="184" y="0.0" width="171" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <state key="normal" title="Agree and continue">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="agreeTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xhf-yl-Psg"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="XM1-9h-1Bo"/>
+                                    <constraint firstAttribute="height" constant="40" id="XM1-9h-1Bo"/>
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.35815006490000001" green="0.7073085308" blue="0.68420112129999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3Zt-dR-TS7" secondAttribute="trailing" constant="10" id="62v-xR-X4H"/>
                             <constraint firstItem="Nle-r3-XdG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="GBz-EM-j4K"/>
@@ -82,7 +88,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gTj-Av-kOE"/>
+                    <navigationItem key="navigationItem" title="License Agreement" id="gTj-Av-kOE"/>
                     <connections>
                         <outlet property="agreeButton" destination="iZf-nb-ZYB" id="a2d-zg-CgS"/>
                         <outlet property="cancelButton" destination="48a-Gp-ulR" id="M6h-j0-3pF"/>
@@ -103,7 +109,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JIY-qT-VYr">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FilmCell" id="f51-Ju-ya3" customClass="FilmTableViewCell" customModule="MovieApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
@@ -111,7 +117,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f51-Ju-ya3" id="ZIA-oK-uBc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -120,7 +128,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.35815006490000001" green="0.7073085308" blue="0.68420112129999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="JIY-qT-VYr" firstAttribute="trailing" secondItem="kSq-0T-O5n" secondAttribute="trailing" id="DJH-OL-HmP"/>
                             <constraint firstItem="JIY-qT-VYr" firstAttribute="bottom" secondItem="kSq-0T-O5n" secondAttribute="bottom" id="edo-gs-oFO"/>
@@ -254,6 +262,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="p6v-K5-jg4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
