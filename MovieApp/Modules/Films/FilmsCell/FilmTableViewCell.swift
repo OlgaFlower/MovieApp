@@ -43,7 +43,7 @@ extension FilmTableViewCell: FilmTableViewCellProtocol {
     
     func displayFilmImage(_ imageURL: String?) {
         guard let urlString = imageURL else { return }
-        guard let url = URL(string: APISource.shared.baseImagebackdropURL + urlString) else { return }
+        guard let url = URL(string: APISource.shared.baseImageURL + urlString) else { return }
         UIImage.loadImageFrom(url: url) { image in
             self.filmImage.image = image
         }

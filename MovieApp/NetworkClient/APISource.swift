@@ -23,18 +23,29 @@ final class APISource {
     
     static let shared = APISource()
     
-    private let apiKey = "00dc39f3a2f7cefcd9dec673d6d89140"
-    let keyParameter = "&api_key="
-    let pageParameter = "&page="
     let baseURL = "https://api.themoviedb.org/3/"
-//    let baseImagebackdropURL = "https://image.tmdb.org/t/p/w500"
-    let baseImagebackdropURL = "https://image.tmdb.org/t/p/original"
-    let topRatedFilmsParametres = "discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc"
     
+    //Key
+    private let apiKey = "00dc39f3a2f7cefcd9dec673d6d89140"
+    let keyParameter = "api_key="
+    
+    //Rated films parametres
+    let topRatedFilmsParametres = "discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc"
+    let pageParameter = "&page="
+    
+    //Image URL
+    let baseImageURL = "https://image.tmdb.org/t/p/original"
+    
+    //Film Info
+    let infoParametre = "movie/"
     
     func ratedFilmsURL(_ page: Int) -> String? {
         let page = String(page)
-        return baseURL + topRatedFilmsParametres + pageParameter + page + keyParameter + apiKey
+        return baseURL + topRatedFilmsParametres + pageParameter + page + "&" + keyParameter + apiKey
     }
     
+    func filmInfo(_ id: Int) -> String? {
+        let id = String(id)
+        return baseURL + infoParametre + id + "?" + keyParameter + apiKey
+    }
 }
