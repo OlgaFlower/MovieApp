@@ -11,6 +11,8 @@ import Alamofire
 
 class DetailsViewController: UIViewController {
     
+    @IBOutlet weak var contentView: DetailView!
+    
     //MARK: - Properties
     var filmID: Int?
     let presenter = DetailsPresenter()
@@ -21,7 +23,11 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.fetchData(filmID)
+        loadNibView()
     }
     
-    
+    func loadNibView() {
+        let myView = Bundle.main.loadNibNamed("DetailView", owner: self, options: nil)![0] as! UIView
+        contentView .addSubview(myView)
+    }
 }

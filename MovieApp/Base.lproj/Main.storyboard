@@ -145,17 +145,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKP-Mc-gl8">
-                                <rect key="frame" x="16" y="394" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aTz-O9-46v">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6hX-Ku-izY" customClass="DetailView" customModule="MovieApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="6hX-Ku-izY" firstAttribute="leading" secondItem="aTz-O9-46v" secondAttribute="leading" id="5os-bb-b7e"/>
+                                    <constraint firstItem="6hX-Ku-izY" firstAttribute="top" secondItem="aTz-O9-46v" secondAttribute="top" id="8UM-7O-Yb0"/>
+                                    <constraint firstAttribute="bottom" secondItem="6hX-Ku-izY" secondAttribute="bottom" id="95O-4a-87X"/>
+                                    <constraint firstItem="6hX-Ku-izY" firstAttribute="width" secondItem="aTz-O9-46v" secondAttribute="width" id="AZJ-gH-9Ms"/>
+                                    <constraint firstItem="6hX-Ku-izY" firstAttribute="trailing" secondItem="aTz-O9-46v" secondAttribute="trailing" id="hXP-ac-xxc"/>
+                                    <constraint firstItem="6hX-Ku-izY" firstAttribute="height" secondItem="aTz-O9-46v" secondAttribute="height" priority="250" id="jz5-Ac-i9L"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="aTz-O9-46v" firstAttribute="top" secondItem="ChE-4g-csP" secondAttribute="top" id="3ay-LA-79o"/>
+                            <constraint firstItem="aTz-O9-46v" firstAttribute="bottom" secondItem="ChE-4g-csP" secondAttribute="bottom" id="Dxx-cy-gdL"/>
+                            <constraint firstItem="aTz-O9-46v" firstAttribute="leading" secondItem="ChE-4g-csP" secondAttribute="leading" id="New-aK-jSM"/>
+                            <constraint firstItem="aTz-O9-46v" firstAttribute="trailing" secondItem="ChE-4g-csP" secondAttribute="trailing" id="VjT-d8-nZY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ChE-4g-csP"/>
                     </view>
+                    <connections>
+                        <outlet property="contentView" destination="6hX-Ku-izY" id="gTQ-fB-JD5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nBq-IZ-ZGG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
