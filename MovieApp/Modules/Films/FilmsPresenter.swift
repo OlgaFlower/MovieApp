@@ -18,7 +18,6 @@ class FilmsPresenter: ConfigureFilmCellProtocol {
         guard let title = ratedFilm.title, let date = ratedFilm.releaseDate else { return }
         cell.displayTitle(title)
         cell.displayReleaseDate(date)
-        cell.displayFilmImage(ratedFilm.imageURL)
     }
     
     
