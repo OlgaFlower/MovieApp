@@ -12,8 +12,8 @@ struct FilmInfoModel: Codable {
     var genres: [Genre]?
     var posterURL: String?
     var title: String?
-    var productionCompanies: [Company]
-    var productionCountries: [Country]
+    var productionCompanies: [Company]?
+    var productionCountries: [Country]?
     var releaseDate: String?
     var tagLine: String?
     var voteAverage: Double?

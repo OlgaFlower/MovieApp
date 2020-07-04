@@ -11,7 +11,7 @@ import Foundation
 class DetailsPresenter {
     
     let apiClient = NetworkClient()
-    var info: FilmInfoModel?
+    var info = FilmInfoModel()
     
     func fetchData(_ id: Int?) {
         guard let id = id else { return }
@@ -21,7 +21,7 @@ class DetailsPresenter {
             if status {
                 guard let recievedInfo = filmInfo else { return }
                 self?.info = recievedInfo
-                print(self?.info!)
+                print(self?.info)
             }
         }
     }

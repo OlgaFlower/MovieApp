@@ -11,23 +11,20 @@ import Alamofire
 
 class DetailsViewController: UIViewController {
     
-    @IBOutlet weak var contentView: DetailView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var filmImage: UIImageView!
     
     //MARK: - Properties
-    var filmID: Int?
     let presenter = DetailsPresenter()
-    
+    var filmID: Int?
     
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.fetchData(filmID)
-        loadNibView()
+        
     }
     
-    func loadNibView() {
-        let myView = Bundle.main.loadNibNamed("DetailView", owner: self, options: nil)![0] as! UIView
-        contentView .addSubview(myView)
-    }
 }

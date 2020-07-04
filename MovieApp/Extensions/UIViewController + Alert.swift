@@ -17,7 +17,6 @@ extension UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 exit(0)
             }
-            
         })
         alert.addAction(actionNO)
         alert.addAction(actionYES)
@@ -25,5 +24,4 @@ extension UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
-    
 }
