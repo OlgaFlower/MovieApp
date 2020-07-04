@@ -9,9 +9,14 @@
 import Foundation
 
 class DetailsPresenter {
-    
+    //MARK: - Properties
     let apiClient = NetworkClient()
-    var info = FilmInfoModel()
+    var updateDetailsCallback: ((FilmInfoModel?) -> Void)?
+    
+    //MARK: - Callback
+    func updateDetails(update: @escaping ((FilmInfoModel?) -> Void)) {
+        self.updateDetailsCallback = update
+    }
     
     func fetchData(_ id: Int?) {
         guard let id = id else { return }
@@ -20,11 +25,8 @@ class DetailsPresenter {
         apiClient.filmInfoHandler { [weak self] (filmInfo, status, message) in
             if status {
                 guard let recievedInfo = filmInfo else { return }
-                self?.info = recievedInfo
-                print(self?.info)
+                self?.updateDetailsCallback?(recievedInfo)
             }
         }
     }
-
-    
 }

@@ -16,14 +16,25 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var filmImage: UIImageView!
     
     //MARK: - Properties
-    let presenter = DetailsPresenter()
+    var presenter: DetailsPresenter!
     var filmID: Int?
     
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = DetailsPresenter()
         presenter.fetchData(filmID)
+        presenter.updateDetails { details in
+            if details != nil {
+                guard let info = details else { return }
+                self.dateLabel.text = info.releaseDate
+                self.titleLabel.text = info.title
+            }
+            else {
+                print("details = nil")
+            }
+        }
         
     }
     

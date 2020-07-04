@@ -10,7 +10,7 @@ import Foundation
 
 struct FilmInfoModel: Codable {
     var genres: [Genre]?
-    var posterURL: String?
+    var imageURL: String?
     var title: String?
     var productionCompanies: [Company]?
     var productionCountries: [Country]?
@@ -20,7 +20,7 @@ struct FilmInfoModel: Codable {
     
     private enum CodingKeys: String, CodingKey {
         case genres
-        case posterURL = "poster_path"
+        case imageURL = "poster_path"
         case title = "original_title"
         case productionCompanies = "production_companies"
         case productionCountries = "production_countries"
