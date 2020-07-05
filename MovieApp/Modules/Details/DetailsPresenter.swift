@@ -11,10 +11,10 @@ import Foundation
 class DetailsPresenter {
     //MARK: - Properties
     let apiClient = NetworkClient()
-    var updateDetailsCallback: ((FilmInfoModel?) -> Void)?
+    var updateDetailsCallback: ((DetailsModel?) -> Void)?
     
     //MARK: - Callback
-    func updateDetails(update: @escaping ((FilmInfoModel?) -> Void)) {
+    func updateDetails(update: @escaping ((DetailsModel?) -> Void)) {
         self.updateDetailsCallback = update
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIImage {
-    
+    //Load image from URL
     public static func loadImageFrom(url: URL, complition: @escaping (_ image: UIImage?) -> ()) {
         DispatchQueue.global().async {
             if let data = try? Data(contentsOf: url) {

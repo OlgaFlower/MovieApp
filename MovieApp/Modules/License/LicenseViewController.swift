@@ -48,7 +48,7 @@ class LicenseViewController: UIViewController {
     }
     
     @IBAction func cancelTapped(_ sender: Any) {
-        showAlert(title: "Quit the App", message: "Are you sure?")
+        showQuitAlert(title: "Quit the App", message: "Are you sure?")
     }
     
 }

@@ -45,8 +45,8 @@ class DetailsViewController: UIViewController {
         
     }
     
-    func setup(_ info: FilmInfoModel) {
-        self.dateLabel.text = info.releaseDate
+    func setup(_ info: DetailsModel) {
+        self.dateLabel.text = info.releaseDate?.dateFormatter()
         self.titleLabel.text = info.title
         self.tagLabel.text = info.tagLine
         self.overviewLabel.text = info.overview
@@ -66,7 +66,7 @@ class DetailsViewController: UIViewController {
     }
     
     func setupFields() {
-        releaseLabel.text = "Release:"
+        releaseLabel.text = "Released:"
     }
     
 }

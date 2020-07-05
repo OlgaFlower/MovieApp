@@ -38,6 +38,6 @@ extension FilmTableViewCell: FilmTableViewCellProtocol {
     }
     
     func displayReleaseDate(_ date: String) {
-        releaseDate.text = date
+        releaseDate.text = date.dateFormatter()
     }
 }

@@ -1,5 +1,5 @@
 //
-//  FilmInfo.swift
+//  DetailsModel.swift
 //  MovieApp
 //
 //  Created by Olha Bereziuk on 04.07.2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct FilmInfoModel: Codable {
+struct DetailsModel: Codable {
     var imageURL: String?
     var title: String?
     var releaseDate: String?

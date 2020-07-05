@@ -15,13 +15,10 @@ import UIKit
 class FilmsPresenter: ConfigureFilmCellProtocol {
     
     func configureCell(_ cell: FilmTableViewCellProtocol, _ ratedFilm: Film) {
-        guard let title = ratedFilm.title, let date = ratedFilm.releaseDate else {
-            print("******** ratedFilm.title \(ratedFilm.title), ********** ratedFilm.releaseDate \(ratedFilm.releaseDate)")
-            return }
+        guard let title = ratedFilm.title, let date = ratedFilm.releaseDate else { return }
         cell.displayTitle(title)
-        cell.displayReleaseDate(date)
+        cell.displayReleaseDate(date.dateFormatter())
     }
-    
     
     func addSpinner(_ width: CGFloat) -> UIView {
         let spinner = UIActivityIndicatorView(style: .large)

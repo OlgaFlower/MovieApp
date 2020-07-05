@@ -10,7 +10,7 @@ import UIKit
 
 extension UIViewController {
     
-    func showAlert(title: String, message: String) {
+    func showQuitAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let actionNO = UIAlertAction(title: "NO", style: .cancel, handler: nil)
         let actionYES = UIAlertAction(title: "YES", style: .default, handler: { _ in

@@ -15,17 +15,17 @@ class NetworkClient {
     let source = APISource.shared
     
     typealias filmsCallback = (_ films: RatedFilms?, _ status: Bool, _ message: String) -> Void
-    typealias infoCallback = (_ film: FilmInfoModel?, _ status: Bool, _ message: String) -> Void
+    typealias detailsCallback = (_ film: DetailsModel?, _ status: Bool, _ message: String) -> Void
     
     var topRatedCallback: filmsCallback?
-    var filmInfocallback: infoCallback?
+    var filmInfocallback: detailsCallback?
     
     //MARK: - Callback
     func topRatedHandler(callback: @escaping filmsCallback) {
         self.topRatedCallback = callback
     }
 
-    func filmInfoHandler(callback: @escaping infoCallback) {
+    func filmInfoHandler(callback: @escaping detailsCallback) {
         self.filmInfocallback = callback
     }
     
@@ -61,7 +61,7 @@ class NetworkClient {
                 self.filmInfocallback?(nil, false, "")
                 return }
             do {
-                let info = try JSONDecoder().decode(FilmInfoModel.self, from: data)
+                let info = try JSONDecoder().decode(DetailsModel.self, from: data)
                 self.filmInfocallback?(info, true, "")
             } catch {
                 self.filmInfocallback?(nil, false, error.localizedDescription)
