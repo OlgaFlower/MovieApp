@@ -22,7 +22,7 @@ class FilmTableViewCell: UITableViewCell {
     //MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-//        resetContent()
+        resetContent()
     }
 
     func resetContent() {

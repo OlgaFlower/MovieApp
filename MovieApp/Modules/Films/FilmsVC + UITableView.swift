@@ -41,31 +41,22 @@ extension FilmsListViewController: UITableViewDataSource, UITableViewDelegate {
     
     //Pagination
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print("****** willDisplay \(indexPath.row)")
+        
         if indexPath.row == ratedFilms.count - 1 {
-            
-            guard let totalPages = totalFilmsPages else {
-                print("!!!!!ERROR 1")
-                return }
-
-            if page < totalPages {
-                
+            page += 1
+            if page <= totalPages {
+                apiClient.fetchTopRatedFilms(page)
                 apiClient.topRatedHandler { [weak self] (data, status, message) in
                     if status {
 
                         tableView.tableFooterView = self?.presenter.addSpinner(tableView.bounds.width)
                         tableView.tableFooterView?.isHidden = false
 
-                        guard let filmsInfo = data else {
-                            print("!!!!!ERROR 2")
-                            return }
-                        guard let films = filmsInfo.films else {
-                            print("!!!!!ERROR 3")
-                            return }
+                        guard let filmsInfo = data else { return }
+                        guard let films = filmsInfo.films else { return }
 
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
                             self?.ratedFilms.append(contentsOf: films)
-                            self?.totalFilmsPages = filmsInfo.totalPages
 
                             DispatchQueue.main.async {
                                 //Hide spinner
@@ -73,17 +64,10 @@ extension FilmsListViewController: UITableViewDataSource, UITableViewDelegate {
                                 self?.tableView.reloadData()
                             }
                         }
-                    } else {
-                        print("status == false")
-//                        print() ЗДЕСЬ?
                     }
                 }
-                apiClient.fetchTopRatedFilms(page + 1)
-            } else {
-                print("page < totalPages - не меньше")
+                
             }
-        } else {
-            print("indexPath.row не равно ratedFilms.count - 1")
         }
     }
 }

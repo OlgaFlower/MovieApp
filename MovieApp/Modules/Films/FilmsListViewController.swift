@@ -27,7 +27,7 @@ class FilmsListViewController: UIViewController {
     let presenter = FilmsPresenter()
     var ratedFilms = [Film]()
     //Pagination data
-    var totalFilmsPages: Int?
+    var totalPages = 0
     var page = 1
     
     //MARK: - Lifecycle
@@ -42,26 +42,18 @@ class FilmsListViewController: UIViewController {
                 self?.displayErrorLabel(UserErrors.noData.message)
             }
             if status {
-                guard let filmsInfo = ratedFilms else {
-                    print("NO filmsInfo")
-                    return
-                }
+                guard let filmsInfo = ratedFilms else { return }
                 guard let films = filmsInfo.films else {
                     print(NetworkErrors.JSONerror.message)
                     self?.displayErrorLabel(UserErrors.noData.message)
                     return
                 }
                 self?.ratedFilms = films
-                self?.totalFilmsPages = filmsInfo.totalPages
-                guard let page = filmsInfo.page else {
-                    print("NO page")
-                    return
-                }
-                self?.page = page
+                guard let pagesCount = filmsInfo.totalPages else { return }
+                self?.totalPages = pagesCount
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
-                
             }
         }
     }
