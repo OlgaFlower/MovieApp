@@ -241,6 +241,7 @@
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="OLO-FB-cRI" id="UXp-04-wRC"/>
+                        <outlet property="detailsStackView" destination="VXh-2c-eMf" id="Aff-eg-T4m"/>
                         <outlet property="filmImage" destination="nWH-hF-Xpm" id="9Ua-bs-JX5"/>
                         <outlet property="overviewLabel" destination="QrB-Ki-KF6" id="gCp-NY-bWo"/>
                         <outlet property="releaseLabel" destination="uvJ-cS-fEt" id="B7E-4U-Lmw"/>

@@ -14,13 +14,13 @@ class FilmsListViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     
-    let errorMessageLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.textColor = .white
-        return label
-    }()
+//    let errorMessageLabel: UILabel = {
+//        let label = UILabel()
+//        label.textAlignment = .center
+//        label.numberOfLines = 0
+//        label.textColor = .white
+//        return label
+//    }()
     
     //MARK: - Properties
     let apiClient = NetworkClient()
@@ -39,13 +39,13 @@ class FilmsListViewController: UIViewController {
         apiClient.fetchTopRatedFilms(page)
         apiClient.topRatedHandler { [weak self] (ratedFilms, status, error) in
             if !status && error == "" {
-                self?.displayErrorLabel(UserErrors.noData.message)
+                self?.view.displayErrorView(UserErrors.noData.message)
             }
             if status {
                 guard let filmsInfo = ratedFilms else { return }
                 guard let films = filmsInfo.films else {
                     print(NetworkErrors.JSONerror.message)
-                    self?.displayErrorLabel(UserErrors.noData.message)
+                    self?.view.displayErrorView(UserErrors.noData.message)
                     return
                 }
                 self?.ratedFilms = films
@@ -78,19 +78,6 @@ class FilmsListViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: .zero)
         
         tableView.register(UINib(nibName: "FilmTableViewCell", bundle: nil), forCellReuseIdentifier: "FilmCell")
-    }
-    
-    func displayErrorLabel(_ message: String) {
-        view.addSubview(errorMessageLabel)
-        errorMessageLabel.translatesAutoresizingMaskIntoConstraints = false
-        errorMessageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        errorMessageLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        let constraints = [
-            errorMessageLabel.widthAnchor.constraint(equalToConstant: 300)
-        ]
-        NSLayoutConstraint.activate(constraints)
-        errorMessageLabel.textAlignment = .center
-        errorMessageLabel.text = message
     }
 }
 

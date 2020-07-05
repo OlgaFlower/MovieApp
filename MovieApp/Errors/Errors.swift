@@ -23,10 +23,12 @@ enum NetworkErrors {
 
 enum UserErrors {
     case noData
+    case noInternet
     
     var message: String {
         switch self {
-        case .noData : return "Something went wrong... Houston we have a problem."
+        case .noData     : return "Something went wrong... Houston we have a problem."
+        case .noInternet : return "The Internet connection appears to be offline."
         }
     }
 }

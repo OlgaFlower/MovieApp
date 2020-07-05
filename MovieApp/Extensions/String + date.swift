@@ -1,5 +1,5 @@
 //
-//  String + date.swift
+//  String + Date.swift
 //  MovieApp
 //
 //  Created by Olha Bereziuk on 05.07.2020.

@@ -13,6 +13,7 @@ class DetailsViewController: UIViewController {
     
     //MARK: - Outlets
     //Field
+    @IBOutlet weak var detailsStackView: UIStackView!
     @IBOutlet weak var releaseLabel: UILabel!
     
     //Details
@@ -33,16 +34,16 @@ class DetailsViewController: UIViewController {
         presenter = DetailsPresenter()
         presenter.fetchData(filmID)
         
-        presenter.updateDetails { details in
-            if details != nil {
-                guard let info = details else { return }
+        presenter.updateDetails { data, error in
+            if data != nil {
+                guard let info = data else { return }
                 self.setup(info)
             }
-            else {
-                //TODO - HANDLE ERROR*********
+            if data == nil && error != nil {
+                self.detailsStackView.isHidden = true
+                self.view.displayErrorView(UserErrors.noInternet.message)
             }
         }
-        
     }
     
     func setup(_ info: DetailsModel) {
