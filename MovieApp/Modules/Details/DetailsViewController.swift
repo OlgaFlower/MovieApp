@@ -46,6 +46,7 @@ class DetailsViewController: UIViewController {
     }
     
     func setup(_ info: FilmInfoModel) {
+        print("title: \(info.title), imageURL: \(info.imageURL)")
         self.dateLabel.text = info.releaseDate
         self.titleLabel.text = info.title
         self.tagLabel.text = info.tagLine

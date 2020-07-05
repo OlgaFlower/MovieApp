@@ -38,7 +38,9 @@ class NetworkClient {
         AF.request(url).response { responseData in
             guard let data = responseData.data else {
                 self.topRatedCallback?(nil, false, "")
-                return }
+                print(NetworkErrors.URLerror.message)
+                return
+            }
             do {
                 let ratedFilms = try JSONDecoder().decode(RatedFilms.self, from: data)
                 self.topRatedCallback?(ratedFilms, true, "")
