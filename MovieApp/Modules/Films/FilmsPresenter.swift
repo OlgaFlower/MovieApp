@@ -15,7 +15,9 @@ import UIKit
 class FilmsPresenter: ConfigureFilmCellProtocol {
     
     func configureCell(_ cell: FilmTableViewCellProtocol, _ ratedFilm: Film) {
-        guard let title = ratedFilm.title, let date = ratedFilm.releaseDate else { return }
+        guard let title = ratedFilm.title, let date = ratedFilm.releaseDate else {
+            print("******** ratedFilm.title \(ratedFilm.title), ********** ratedFilm.releaseDate \(ratedFilm.releaseDate)")
+            return }
         cell.displayTitle(title)
         cell.displayReleaseDate(date)
     }

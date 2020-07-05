@@ -15,9 +15,17 @@ extension FilmsListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "FilmCell", for: indexPath) as! FilmTableViewCell
         presenter.configureCell(cell, ratedFilms[indexPath.row])
+        
         print("\(indexPath.row) - \(ratedFilms[indexPath.row].title)")
+        if indexPath.row % 2 == 0 {
+            cell.contentView.backgroundColor = .blue
+        } else {
+            cell.contentView.backgroundColor = .purple
+        }
+        
         return cell
     }
     
@@ -33,20 +41,27 @@ extension FilmsListViewController: UITableViewDataSource, UITableViewDelegate {
     
     //Pagination
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print("****** willDisplay \(indexPath.row)")
         if indexPath.row == ratedFilms.count - 1 {
-
-            guard let totalPages = totalFilmsPages else { return }
+            
+            guard let totalPages = totalFilmsPages else {
+                print("!!!!!ERROR 1")
+                return }
 
             if page < totalPages {
-                apiClient.fetchTopRatedFilms(page + 1)
-                apiClient.topRatedHandler { [weak self] (ratedFilms, status, message) in
+                
+                apiClient.topRatedHandler { [weak self] (data, status, message) in
                     if status {
 
                         tableView.tableFooterView = self?.presenter.addSpinner(tableView.bounds.width)
                         tableView.tableFooterView?.isHidden = false
 
-                        guard let filmsInfo = ratedFilms else { return }
-                        guard let films = filmsInfo.films else { return }
+                        guard let filmsInfo = data else {
+                            print("!!!!!ERROR 2")
+                            return }
+                        guard let films = filmsInfo.films else {
+                            print("!!!!!ERROR 3")
+                            return }
 
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
                             self?.ratedFilms.append(contentsOf: films)
@@ -58,9 +73,17 @@ extension FilmsListViewController: UITableViewDataSource, UITableViewDelegate {
                                 self?.tableView.reloadData()
                             }
                         }
+                    } else {
+                        print("status == false")
+//                        print() ЗДЕСЬ?
                     }
                 }
+                apiClient.fetchTopRatedFilms(page + 1)
+            } else {
+                print("page < totalPages - не меньше")
             }
+        } else {
+            print("indexPath.row не равно ratedFilms.count - 1")
         }
     }
 }
