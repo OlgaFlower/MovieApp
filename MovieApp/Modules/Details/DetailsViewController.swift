@@ -46,12 +46,12 @@ class DetailsViewController: UIViewController {
     }
     
     func setup(_ info: FilmInfoModel) {
-        print("title: \(info.title), imageURL: \(info.imageURL)")
         self.dateLabel.text = info.releaseDate
         self.titleLabel.text = info.title
         self.tagLabel.text = info.tagLine
         self.overviewLabel.text = info.overview
         setupImageView(info.imageURL)
+        setupFields()
     }
     
     func setupImageView(_ imageURL: String?) {
@@ -67,7 +67,6 @@ class DetailsViewController: UIViewController {
     
     func setupFields() {
         releaseLabel.text = "Release:"
-        
     }
     
 }
