@@ -55,7 +55,10 @@ class DetailsViewController: UIViewController {
     }
     
     func setupImageView(_ imageURL: String?) {
-        guard let urlString = imageURL else { return }
+        guard let urlString = imageURL else {
+            filmImage.isHidden = true
+            return
+        }
         guard let url = URL(string: APISource.shared.baseImageURL + urlString) else { return }
         UIImage.loadImageFrom(url: url) { image in
             self.filmImage.image = image
