@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIViewController {
-    
+    //Display Quit Alert
     func showQuitAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let actionNO = UIAlertAction(title: "NO", style: .cancel, handler: nil)

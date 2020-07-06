@@ -32,7 +32,7 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         messageView.isHidden = true
-        navigationItem.title = "Details"
+        
         presenter = DetailsPresenter()
         presenter.fetchData(filmID)
         
@@ -47,13 +47,19 @@ class DetailsViewController: UIViewController {
         }
     }
     
+    //MARK: - Setup UI
     func setup(_ info: DetailsModel) {
+        setupImageView(info.imageURL)
+        setupLabels(info)
+        setupFields()
+        setupTitle()
+    }
+    
+    func setupLabels(_ info: DetailsModel) {
         self.dateLabel.text = info.releaseDate?.dateFormatter()
         self.titleLabel.text = info.title
         self.tagLabel.text = info.tagLine
         self.overviewLabel.text = info.overview
-        setupImageView(info.imageURL)
-        setupFields()
     }
     
     func setupImageView(_ imageURL: String?) {
@@ -71,6 +77,11 @@ class DetailsViewController: UIViewController {
         releaseLabel.text = "Released:"
     }
     
+    func setupTitle() {
+        navigationItem.title = "Details"
+    }
+    
+    //MARK: - Methods
     func displayErrorAndReturn(_ error: String) {
         self.detailsStackView.isHidden = true
         messageView.displayErrorView(error)

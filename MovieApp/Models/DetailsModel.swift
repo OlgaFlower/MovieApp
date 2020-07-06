@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Details of the Top Rated Films
 struct DetailsModel: Codable {
     var imageURL: String?
     var title: String?

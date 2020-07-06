@@ -9,7 +9,7 @@
 import Foundation
 
 extension String {
-    //2020-08-18 into 2020
+    //Retrieve a year value  from date string (2020 from 2020-08-18)
     func dateFormatter() -> String {
         let range = self.startIndex ..< self.index(self.startIndex, offsetBy: 4)
         return String(self[range])

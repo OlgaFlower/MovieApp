@@ -51,7 +51,6 @@ class NetworkClient {
         }
     }
     
-    
     //MARK: - Film Info
     func fetchFilmsInfo(_ id: Int) {
         
@@ -69,6 +68,4 @@ class NetworkClient {
             }
         }
     }
-    
-
 }

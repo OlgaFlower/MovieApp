@@ -9,11 +9,12 @@
 import Foundation
 
 class DetailsPresenter {
+    
     //MARK: - Properties
     let apiClient = NetworkClient()
     var updateDetailsCallback: ((DetailsModel?, String?) -> Void)?
     
-    //MARK: - Callback
+    //MARK: - Methods
     func updateDetails(update: @escaping ((DetailsModel?, String?) -> Void)) {
         self.updateDetailsCallback = update
     }

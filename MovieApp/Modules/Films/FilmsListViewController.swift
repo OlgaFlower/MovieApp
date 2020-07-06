@@ -57,14 +57,12 @@ class FilmsListViewController: UIViewController {
         }
     }
     
-    
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         removeBackTitle()
     }
     
-    //MARK: - Methods
+    //MARK: - Setup UI
     func setupNavBar() {
         navigationItem.title = "Top Rated Films"
     }
@@ -81,6 +79,7 @@ class FilmsListViewController: UIViewController {
         tableView.register(UINib(nibName: "FilmTableViewCell", bundle: nil), forCellReuseIdentifier: "FilmCell")
     }
     
+    //MARK: - Methods
     func displayErrorAndReturn(_ error: String) {
         messageView.displayErrorView(error)
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {

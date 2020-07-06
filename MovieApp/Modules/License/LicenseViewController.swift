@@ -10,10 +10,12 @@ import UIKit
 
 class LicenseViewController: UIViewController {
     
+    //MARK: - Outlets
     @IBOutlet weak var licenseTextLabel: UILabel!
     @IBOutlet weak var agreeButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavbarAppearence()
@@ -26,7 +28,7 @@ class LicenseViewController: UIViewController {
         setupButton(cancelButton)
     }
     
-    
+    //MARK: - Setup UI
     func setupNavbarAppearence() {
         let navBar = navigationController?.navigationBar
         navBar?.tintColor = .white
@@ -41,6 +43,7 @@ class LicenseViewController: UIViewController {
         button.layer.borderWidth = 1
     }
 
+    //MARK: - Actions
     @IBAction func agreeTapped(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let filmsVC = storyBoard.instantiateViewController(withIdentifier: "FilmsListViewController") as! FilmsListViewController
@@ -50,6 +53,5 @@ class LicenseViewController: UIViewController {
     @IBAction func cancelTapped(_ sender: Any) {
         showQuitAlert(title: "Quit the App", message: "Are you sure?")
     }
-    
 }
 

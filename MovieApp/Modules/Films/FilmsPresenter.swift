@@ -26,6 +26,4 @@ class FilmsPresenter: ConfigureFilmCellProtocol {
         spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: width, height: CGFloat(44))
         return spinner
     }
-    
-    
 }

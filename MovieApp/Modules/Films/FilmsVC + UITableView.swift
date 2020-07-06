@@ -15,8 +15,8 @@ extension FilmsListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "FilmCell", for: indexPath) as! FilmTableViewCell
+        
         presenter.configureCell(cell, ratedFilms[indexPath.row])
         
         if indexPath.row % 2 == 0 {
@@ -24,7 +24,6 @@ extension FilmsListViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             cell.contentView.backgroundColor = .clear
         }
-        
         return cell
     }
     
@@ -48,7 +47,6 @@ extension FilmsListViewController: UITableViewDataSource, UITableViewDelegate {
             
             apiClient.topRatedHandler { [weak self] (data, status, message) in
                 if status {
-                    
                     tableView.tableFooterView = self?.presenter.addSpinner(tableView.bounds.width)
                     tableView.tableFooterView?.isHidden = false
                     
@@ -64,9 +62,7 @@ extension FilmsListViewController: UITableViewDataSource, UITableViewDelegate {
                             self?.tableView.reloadData()
                         }
                     }
-                    
                 }
-                
             }
         }
     }

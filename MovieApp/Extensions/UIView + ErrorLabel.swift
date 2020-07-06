@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIView {
-    
+    //Display App Error
     func displayErrorView(_ message: String) {
         let errorMessageLabel: UILabel = {
             let label = UILabel()

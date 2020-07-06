@@ -6,6 +6,7 @@
 //  Copyright © 2020 Olha Bereziuk. All rights reserved.
 //
 
+//Top Rated Films
 struct RatedFilms: Codable {
     var totalPages: Int?
     var page: Int?
