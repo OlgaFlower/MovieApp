@@ -129,17 +129,28 @@
                                     <outlet property="delegate" destination="V9K-zA-Byh" id="bsW-UC-7XC"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DPN-8a-Q9V">
+                                <rect key="frame" x="67.5" y="269.5" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.16973701561121451" green="0.34006186548223349" blue="0.33050533369731055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="6OJ-de-zlr"/>
+                                    <constraint firstAttribute="width" constant="240" id="J0e-tS-j41"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.35815006490000001" green="0.7073085308" blue="0.68420112129999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="JIY-qT-VYr" firstAttribute="trailing" secondItem="kSq-0T-O5n" secondAttribute="trailing" id="DJH-OL-HmP"/>
                             <constraint firstItem="JIY-qT-VYr" firstAttribute="bottom" secondItem="kSq-0T-O5n" secondAttribute="bottom" id="edo-gs-oFO"/>
                             <constraint firstItem="JIY-qT-VYr" firstAttribute="top" secondItem="kSq-0T-O5n" secondAttribute="top" id="gWt-eY-crR"/>
+                            <constraint firstItem="DPN-8a-Q9V" firstAttribute="centerX" secondItem="TD0-VT-JAn" secondAttribute="centerX" id="hy7-lA-rWh"/>
+                            <constraint firstItem="DPN-8a-Q9V" firstAttribute="centerY" secondItem="TD0-VT-JAn" secondAttribute="centerY" id="opU-22-gDD"/>
                             <constraint firstItem="JIY-qT-VYr" firstAttribute="leading" secondItem="kSq-0T-O5n" secondAttribute="leading" id="tOV-Ae-WEc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kSq-0T-O5n"/>
                     </view>
                     <connections>
+                        <outlet property="messageView" destination="DPN-8a-Q9V" id="x3l-94-MPH"/>
                         <outlet property="tableView" destination="JIY-qT-VYr" id="mED-oV-w24"/>
                     </connections>
                 </viewController>

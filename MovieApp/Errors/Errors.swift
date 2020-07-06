@@ -14,12 +14,11 @@ enum NetworkErrors {
     
     var message: String {
         switch self {
-        case .URLerror  : return "A server with the specified hostname could not be found."
-        case .JSONerror : return "Error fetching JSON."
+        case .URLerror   : return "No Internet or server with the specified hostname could not be found."
+        case .JSONerror  : return "Error fetching JSON."
         }
     }
 }
-
 
 enum UserErrors {
     case noData

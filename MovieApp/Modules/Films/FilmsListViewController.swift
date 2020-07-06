@@ -13,14 +13,7 @@ class FilmsListViewController: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
-    
-//    let errorMessageLabel: UILabel = {
-//        let label = UILabel()
-//        label.textAlignment = .center
-//        label.numberOfLines = 0
-//        label.textColor = .white
-//        return label
-//    }()
+    @IBOutlet weak var messageView: UIView!
     
     //MARK: - Properties
     let apiClient = NetworkClient()
@@ -33,19 +26,18 @@ class FilmsListViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        messageView.isHidden = true
         setupNavBar()
         setupTableView()
         
         apiClient.fetchTopRatedFilms(page)
-        apiClient.topRatedHandler { [weak self] (ratedFilms, status, error) in
-            if !status && error == "" {
-                self?.view.displayErrorView(UserErrors.noData.message)
-            }
+        apiClient.topRatedHandler { [weak self] (data, status, error) in
+            
             if status {
-                guard let filmsInfo = ratedFilms else { return }
+                guard let filmsInfo = data else { return }
                 guard let films = filmsInfo.films else {
                     print(NetworkErrors.JSONerror.message)
-                    self?.view.displayErrorView(UserErrors.noData.message)
+                    self?.displayErrorAndReturn(UserErrors.noData.message)
                     return
                 }
                 self?.ratedFilms = films
@@ -55,8 +47,17 @@ class FilmsListViewController: UIViewController {
                     self?.tableView.reloadData()
                 }
             }
+            if !status && error.isEmpty {
+                self?.displayErrorAndReturn(UserErrors.noInternet.message)
+            }
+            
+            if data == nil && !error.isEmpty {
+                self?.displayErrorAndReturn(UserErrors.noData.message)
+            }
         }
     }
+    
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -78,6 +79,13 @@ class FilmsListViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: .zero)
         
         tableView.register(UINib(nibName: "FilmTableViewCell", bundle: nil), forCellReuseIdentifier: "FilmCell")
+    }
+    
+    func displayErrorAndReturn(_ error: String) {
+        messageView.displayErrorView(error)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }
 

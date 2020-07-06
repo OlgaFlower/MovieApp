@@ -45,7 +45,8 @@ class NetworkClient {
                 let ratedFilms = try JSONDecoder().decode(RatedFilms.self, from: data)
                 self.topRatedCallback?(ratedFilms, true, "")
             } catch {
-                self.topRatedCallback?(nil, false, error.localizedDescription)
+                self.topRatedCallback?(nil, false, UserErrors.noData.message)
+                print(error)
             }
         }
     }
