@@ -41,8 +41,8 @@ class DetailsViewController: UIViewController {
                 guard let info = data else { return }
                 self.setup(info)
             }
-            if data == nil && error != nil {
-                self.displayErrorAndReturn(UserErrors.noInternet.message)
+            if error != nil {
+                self.displayErrorAndReturn(error!)
             }
         }
     }
