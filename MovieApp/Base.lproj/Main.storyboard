@@ -240,11 +240,21 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="LdF-WT-d9Y"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="2Zg-mq-e9O"/>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQa-ic-Vwd">
+                                <rect key="frame" x="67.5" y="269.5" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.16973701560000001" green="0.3400618655" blue="0.33050533370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Nnv-48-IhA"/>
+                                    <constraint firstAttribute="width" constant="240" id="xwc-EH-5eY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.35815006490000001" green="0.7073085308" blue="0.68420112129999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="aTz-O9-46v" firstAttribute="top" secondItem="ChE-4g-csP" secondAttribute="top" id="3ay-LA-79o"/>
+                            <constraint firstItem="HQa-ic-Vwd" firstAttribute="centerY" secondItem="bG1-T6-Gbj" secondAttribute="centerY" id="BAI-As-QWb"/>
                             <constraint firstItem="aTz-O9-46v" firstAttribute="bottom" secondItem="ChE-4g-csP" secondAttribute="bottom" id="Dxx-cy-gdL"/>
+                            <constraint firstItem="HQa-ic-Vwd" firstAttribute="centerX" secondItem="bG1-T6-Gbj" secondAttribute="centerX" id="Ieg-fC-Nd1"/>
                             <constraint firstItem="aTz-O9-46v" firstAttribute="leading" secondItem="ChE-4g-csP" secondAttribute="leading" id="New-aK-jSM"/>
                             <constraint firstItem="aTz-O9-46v" firstAttribute="trailing" secondItem="ChE-4g-csP" secondAttribute="trailing" id="VjT-d8-nZY"/>
                         </constraints>
@@ -254,6 +264,7 @@
                         <outlet property="dateLabel" destination="OLO-FB-cRI" id="UXp-04-wRC"/>
                         <outlet property="detailsStackView" destination="VXh-2c-eMf" id="Aff-eg-T4m"/>
                         <outlet property="filmImage" destination="nWH-hF-Xpm" id="9Ua-bs-JX5"/>
+                        <outlet property="messageView" destination="HQa-ic-Vwd" id="opL-5D-nnw"/>
                         <outlet property="overviewLabel" destination="QrB-Ki-KF6" id="gCp-NY-bWo"/>
                         <outlet property="releaseLabel" destination="uvJ-cS-fEt" id="B7E-4U-Lmw"/>
                         <outlet property="tagLabel" destination="63A-7E-G12" id="ALk-6R-DD3"/>

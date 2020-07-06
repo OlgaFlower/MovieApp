@@ -12,6 +12,7 @@ import Alamofire
 class DetailsViewController: UIViewController {
     
     //MARK: - Outlets
+    @IBOutlet weak var messageView: UIView!
     //Field
     @IBOutlet weak var detailsStackView: UIStackView!
     @IBOutlet weak var releaseLabel: UILabel!
@@ -30,6 +31,7 @@ class DetailsViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        messageView.isHidden = true
         navigationItem.title = "Details"
         presenter = DetailsPresenter()
         presenter.fetchData(filmID)
@@ -40,8 +42,7 @@ class DetailsViewController: UIViewController {
                 self.setup(info)
             }
             if data == nil && error != nil {
-                self.detailsStackView.isHidden = true
-                self.view.displayErrorView(UserErrors.noInternet.message)
+                self.displayErrorAndReturn(UserErrors.noInternet.message)
             }
         }
     }
@@ -70,4 +71,11 @@ class DetailsViewController: UIViewController {
         releaseLabel.text = "Released:"
     }
     
+    func displayErrorAndReturn(_ error: String) {
+        self.detailsStackView.isHidden = true
+        messageView.displayErrorView(error)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
 }
